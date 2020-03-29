@@ -18,6 +18,6 @@ while !available
     sms_service.send_sms(merchant)
   else
     puts "There is no available slot for #{merchant}"
-    sleep(30.seconds)
+    sleep(15.minutes)
   end
 end
