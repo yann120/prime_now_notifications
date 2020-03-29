@@ -31,7 +31,7 @@ class PrimeNow
   end
 
   def click_login
-    @driver.find_element(:href, "/account/address").click
+    @driver.find_element(:xpath, "//*[text()[contains(.,'Bonjour. Identifiez-vous')]]").click
   end
 
   def login_user
@@ -44,6 +44,7 @@ class PrimeNow
     password = STDIN.gets.chomp
     form.find_element(:name, "password").send_keys(password)
     form.submit
+    @driver.navigate.to("https://primenow.amazon.fr/checkout/enter-checkout?merchantId=#{merchant_id}&ref=pn_sc_ptc_bwr")
   end
 
   def set_merchant(merchant)
